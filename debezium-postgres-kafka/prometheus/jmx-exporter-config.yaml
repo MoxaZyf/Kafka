@@ -1,0 +1,13 @@
+rules:
+  - pattern: "kafka.connect<type=connector-metrics, connector=(.+)><>(\\w+)"
+    name: "kafka_connect_connector_$2"
+    labels:
+      connector: "$1"
+  - pattern: "kafka.connect<type=task-metrics, connector=(.+)><>(\\w+)"
+    name: "kafka_connect_task_$2"
+    labels:
+      connector: "$1"
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+)><>(\\w+)"
+    name: "kafka_connect_source_task_$2"
+    labels:
+      connector: "$1"
